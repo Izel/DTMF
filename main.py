@@ -8,7 +8,7 @@
 
 from apache_beam.options.pipeline_options import PipelineOptions
 
-from setup_cuchas import app
+from setup_dtmf import app
 
 if __name__ == "__main__":
     import argparse

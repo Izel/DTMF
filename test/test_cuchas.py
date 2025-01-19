@@ -15,7 +15,7 @@ from unittest.mock import patch
 from apache_beam.testing.test_pipeline import TestPipeline
 from apache_beam.testing.util import assert_that, equal_to
 
-import setup_cuchas
+import setup_dtmf
 
 
 @patch("apache_beam.Pipeline", TestPipeline)

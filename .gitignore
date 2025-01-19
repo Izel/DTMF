@@ -33,7 +33,7 @@ MANIFEST
 # Virtual environments.
 .env
 .venv
-env-cuchas/
+env-dtmf/
 venv/
 ENV/
 env.bak/
