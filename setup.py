@@ -8,15 +8,11 @@
 
 from setuptools import setup, find_packages
 
-with open("requirements.txt") as f:
-    requirements = f.readlines()
-
 setup(
-    name="My app",
+    name="DTMF",
     version="1.0",
     description="Python Apache Beam pipeline.",
-    author="My name",
+    author="Izel",
     author_email="my@email.com",
     packages=find_packages(),
-    install_requires=requirements,
 )
