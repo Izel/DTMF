@@ -6,22 +6,18 @@
 # option. This file may not be copied, modified, or distributed
 # except according to those terms.
 
-from typing import Callable, Optional
+from typing import Callable
 import apache_beam as beam
+import argparse
 from apache_beam.options.pipeline_options import PipelineOptions
 
 
 def run(
-    input_text: str,
-    beam_options: Optional[PipelineOptions] = None,
+    beam_options: PipelineOptions,
+    options: argparse,
     test: Callable[[beam.PCollection], None] = lambda _: None,
 ) -> None:
-    with beam.Pipeline(options=beam_options) as pipeline:
-        elements = (
-            pipeline
-            | "Create elements" >> beam.Create(["Hello", "World!", input_text])
-            | "Print elements" >> beam.Map(print)
-        )
-
+    with beam.Pipeline(options=beam_options) as p:
+        p | "ReadFromPubSub" >> beam.ReadFromPubSub(options.input_topic)
         # Used for testing only.
-        test(elements)
+        test(options)
